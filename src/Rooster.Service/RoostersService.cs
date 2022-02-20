@@ -1,5 +1,6 @@
 using Rooster.Data;
 using Rooster.Models;
+using System.Linq;
 
 namespace Rooster.Service;
 
@@ -17,4 +18,12 @@ public class RoosterService : IRoosterService
         var roosters = await _roosterData.ReadRosters();
         return roosters;
     }
+
+    public async  Task<RoosterModel> GetRoosterByID(int id)
+    {
+         var rooster = await _roosterData.ReadRosters();
+        return rooster.Single(x => x.ID == id);
+    }
+
+
 }
