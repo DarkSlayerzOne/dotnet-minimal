@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Rooster.Models\Rooster.Models.csproj" />
+    <ProjectReference Include="..\Rooster.Data\Rooster.DATa.csproj" />
+    <ProjectReference Include="..\Rooster.Service\Rooster.Service.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  
+</Project>
