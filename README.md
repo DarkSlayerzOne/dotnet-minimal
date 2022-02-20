@@ -1,1 +1,1 @@
-# dotnet-minimal
+# Dotnet 6 minimal API project sample
