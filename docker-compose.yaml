@@ -1,0 +1,38 @@
+version: '3'
+services:
+  rooster:
+    container_name: rooster-service
+    image: ecomicon/rooster-api
+    networks:
+      - rooster-network
+    ports:
+      - 8080:8080
+  fluentd:
+    container_name: fluentd
+    user: root
+    image: fluent/fluentd:v1.11-debian
+    volumes:
+    - /var/lib/docker/containers:/fluentd/log/containers
+    - ./fluent.conf:/fluentd/etc/fluent.conf
+    - ./logs:/output/
+    networks:
+      - rooster-network
+    logging:
+      driver: "local"
+  mongo:
+    image: mongo
+    container_name: fluentd-mongo
+    environment:
+      - MONGO_INITDB_DATABASE=fluentd
+      - MONGO_INITDB_ROOT_USERNAME=fluent_logging
+      - MONGO_INITDB_ROOT_PASSWORD=1234567890
+    networks:
+      - rooster-network
+    ports:
+      - 27017:27017
+
+
+networks:
+    rooster-network:
+      driver: bridge
+      name : rooster-network
