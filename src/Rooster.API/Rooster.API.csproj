@@ -2,7 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Rooster.Models\Rooster.Models.csproj" />
-    <ProjectReference Include="..\Rooster.Data\Rooster.DATa.csproj" />
+    <ProjectReference Include="..\Rooster.Data\Rooster.Data.csproj" />
     <ProjectReference Include="..\Rooster.Service\Rooster.Service.csproj" />
   </ItemGroup>
 
