@@ -2,7 +2,7 @@ version: '3'
 services:
   rooster:
     container_name: rooster-service
-    image: ecomicon/rooster-api
+    image: rooster-api-darks
     networks:
       - rooster-network
     ports:
@@ -10,7 +10,7 @@ services:
   fluentd:
     container_name: fluentd
     user: root
-    image: darkxlayers/fluentd-mongodb
+    image: fluent-mongo-darks
     volumes:
     - /var/lib/docker/containers:/fluentd/log/containers
     - ./fluent.conf:/fluentd/etc/fluent.conf
@@ -24,8 +24,6 @@ services:
     container_name: fluentd-mongo
     environment:
       - MONGO_INITDB_DATABASE=fluentd
-      - MONGO_INITDB_ROOT_USERNAME=fluent_logging
-      - MONGO_INITDB_ROOT_PASSWORD=1234567890
     networks:
       - rooster-network
     ports:
